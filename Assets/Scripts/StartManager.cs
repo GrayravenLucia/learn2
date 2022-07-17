@@ -12,6 +12,7 @@ public class StartManager : MonoBehaviour
 
     public static StartManager instance;
     public string currentName;
+    public string mainName;
     public InputField inputField;
     public TextMeshProUGUI hiScore;
     public string saveName;
@@ -83,6 +84,8 @@ public class StartManager : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
             MainManager.highScore = data.saveHiScore;
             currentName = data.name;
+            mainName = data.name;
+
 
         }
     }

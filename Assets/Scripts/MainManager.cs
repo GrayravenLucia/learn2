@@ -41,7 +41,7 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-        highScoreText.text = $"Best Score: {StartManager.instance.currentName}: {highScore}";
+        highScoreText.text = $"Best Score: {StartManager.instance.mainName}: {highScore}";
     }
 
     private void Update()
@@ -83,9 +83,10 @@ public class MainManager : MonoBehaviour
         {
             highScore = m_Points;
             highScoreText.text = $"Best Score: {StartManager.instance.currentName}: {highScore}";
-
+            StartManager.instance.mainName = StartManager.instance.currentName;
+            StartManager.instance.SaveData();
         }
-        StartManager.instance.SaveData();
+        
         
     }
 
